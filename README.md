@@ -1,208 +1,168 @@
 # Hospital Pharmacy Automated Dispensing Cabinet Auditing
 
-A blockchain-based medication management platform built on Stacks that reconciles automated dispensing cabinet (ADC) inventory, identifies discrepancies, investigates variances, and prevents medication diversion in hospital pharmacy settings.
-
 ## Overview
 
-Automated Dispensing Cabinets (ADCs) are critical infrastructure in hospital pharmacies, containing controlled substances and high-value medications. This smart contract system provides an immutable audit trail for cabinet transactions, enabling:
+The Hospital Pharmacy Automated Dispensing Cabinet (ADC) Auditing platform is a blockchain-based medication management system designed to reconcile cabinet inventory, identify discrepancies, and prevent medication diversion in healthcare facilities. This smart contract solution ensures transparency, accountability, and security in pharmaceutical distribution.
 
-- Real-time inventory reconciliation
-- Discrepancy detection and flagging
-- Variance investigation workflows
-- Medication diversion prevention
-- Regulatory compliance documentation
+## Purpose
 
-## Problem Statement
+Medication diversion remains a critical challenge in healthcare settings, with automated dispensing cabinets serving as key control points. This platform provides:
 
-Hospital pharmacies face significant challenges with ADC management:
+- **Real-time inventory reconciliation** between cabinet transactions and actual stock
+- **Discrepancy detection** through automated variance analysis
+- **Investigation tracking** for identified anomalies
+- **Audit trail** for regulatory compliance and quality assurance
+- **Diversion prevention** through pattern analysis and alerts
 
-1. **Medication Diversion**: Unauthorized removal of controlled substances
-2. **Inventory Discrepancies**: Mismatches between physical counts and system records
-3. **Audit Trail Gaps**: Incomplete or tampered transaction logs
-4. **Regulatory Compliance**: DEA and Joint Commission requirements
-5. **Manual Reconciliation**: Time-consuming and error-prone processes
+## Core Features
 
-## Solution
+### Cabinet Transaction Auditing
+- Record every medication withdrawal and replenishment
+- Track user access patterns and transaction timestamps
+- Link transactions to patient records when applicable
+- Monitor high-risk medications (controlled substances, narcotics)
 
-This smart contract platform provides:
+### Inventory Reconciliation
+- Compare physical cabinet counts against system records
+- Schedule automated reconciliation cycles
+- Flag immediate discrepancies requiring investigation
+- Calculate variance thresholds by medication type
 
-- **Immutable Transaction Logs**: Every ADC access recorded on-chain
-- **Automated Discrepancy Detection**: Real-time variance identification
-- **Investigation Workflows**: Structured processes for resolving issues
-- **Access Control**: Role-based permissions for pharmacy staff
-- **Compliance Reports**: Audit-ready documentation
+### Discrepancy Investigation
+- Document investigation findings and resolutions
+- Assign responsibility for variance corrections
+- Track investigation status from initiation to closure
+- Maintain evidence chain for regulatory review
 
-## Features
+### Reporting & Analytics
+- Generate compliance reports for regulatory bodies
+- Provide dashboards for pharmacy leadership
+- Identify patterns indicating potential diversion
+- Support continuous quality improvement initiatives
 
-### Core Functionality
-
-- **Cabinet Registration**: Initialize ADC units with location and capacity
-- **Transaction Recording**: Log all medication removals and restocks
-- **Inventory Reconciliation**: Compare expected vs. actual counts
-- **Discrepancy Flagging**: Automatic variance detection
-- **Investigation Management**: Track resolution of identified issues
-- **Access Audit Trail**: Complete history of all cabinet interactions
-
-### Security Features
-
-- Role-based access control (pharmacist, technician, auditor)
-- Medication diversion alerts
-- Tamper-evident transaction logs
-- Multi-signature requirements for controlled substances
-
-### Compliance Support
-
-- DEA audit trail requirements
-- Joint Commission standards
-- State pharmacy board regulations
-- Hospital policy enforcement
-
-## Architecture
+## Technical Architecture
 
 ### Smart Contract Components
 
-- **ADC Registry**: Cabinet registration and metadata
-- **Transaction Ledger**: Comprehensive medication movement logs
-- **Inventory Manager**: Real-time stock tracking
-- **Discrepancy Tracker**: Variance identification and resolution
-- **Access Control**: Permission management system
+**Data Structures:**
+- Cabinet registry with location and capacity details
+- Transaction logs with medication, quantity, and user data
+- Reconciliation records with variance calculations
+- Investigation cases with status tracking
 
-### Data Structures
+**Access Control:**
+- Contract owner/administrator privileges
+- Pharmacy staff transaction recording
+- Auditor read-only access for compliance
+- Investigator case management permissions
 
-- **Cabinet Records**: Location, capacity, controlled substance status
-- **Transaction Logs**: User, medication, quantity, timestamp
-- **Inventory Snapshots**: Expected vs. actual counts
-- **Discrepancy Reports**: Variance details and investigation status
+**Core Functions:**
+- Cabinet registration and configuration
+- Transaction recording and validation
+- Reconciliation execution and reporting
+- Discrepancy investigation workflow
 
 ## Use Cases
 
-### 1. Daily Reconciliation
-Pharmacy technicians perform routine counts, recording results on-chain for automatic variance detection.
+### Daily Operations
+1. Pharmacy technician records cabinet replenishment
+2. Nurse documents medication withdrawal for patient
+3. System automatically flags quantity mismatches
+4. Supervisor receives alert for investigation
 
-### 2. Controlled Substance Auditing
-Pharmacists investigate discrepancies in Schedule II medications, documenting findings immutably.
+### Periodic Auditing
+1. Automated nightly reconciliation of all cabinets
+2. Variance report generated for pharmacy director
+3. High-priority discrepancies escalated immediately
+4. Compliance documentation prepared for regulators
 
-### 3. Diversion Investigation
-Security teams access complete audit trails when suspected theft occurs.
+### Diversion Prevention
+1. Pattern analysis identifies unusual access times
+2. Duplicate transactions flagged for review
+3. Controlled substance withdrawals without patient links investigated
+4. Corrective actions documented and verified
 
-### 4. Regulatory Inspections
-Auditors retrieve comprehensive transaction histories for compliance reviews.
+## Compliance & Security
 
-## Technical Specifications
+### Regulatory Alignment
+- HIPAA compliance for patient data protection
+- DEA requirements for controlled substance tracking
+- Joint Commission standards for medication management
+- State Board of Pharmacy regulations
 
-- **Blockchain**: Stacks
-- **Smart Contract Language**: Clarity
-- **Token Standard**: None (audit trail only)
-- **Access Control**: Principal-based permissions
+### Data Integrity
+- Immutable audit trails on blockchain
+- Cryptographic verification of transaction authenticity
+- Time-stamped records preventing retroactive alteration
+- Multi-signature requirements for sensitive operations
 
-## Contract Functions
+## Benefits
 
-### Public Functions
-- `register-cabinet`: Initialize new ADC unit
-- `record-transaction`: Log medication removal/restock
-- `reconcile-inventory`: Submit physical count
-- `flag-discrepancy`: Report variance
-- `update-investigation`: Record resolution steps
-- `grant-access`: Assign permissions
+**For Healthcare Facilities:**
+- Reduced medication loss and theft
+- Improved regulatory compliance scores
+- Enhanced patient safety through accurate inventory
+- Streamlined audit preparation
 
-### Read-Only Functions
-- `get-cabinet-info`: Retrieve ADC metadata
-- `get-transaction-history`: Query movement logs
-- `get-discrepancies`: List open variances
-- `get-access-level`: Check user permissions
+**For Pharmacy Departments:**
+- Real-time visibility into cabinet stock levels
+- Proactive identification of process issues
+- Data-driven decision making for inventory management
+- Reduced manual audit workload
 
-## Installation
+**For Regulatory Bodies:**
+- Transparent access to medication handling records
+- Standardized reporting formats
+- Verifiable compliance documentation
+- Rapid investigation support
 
-```bash
-# Clone repository
-git clone https://github.com/oyinlola893/Hospital-pharmacy-automated-dispensing-cabinet-auditing.git
-
-# Navigate to project
-cd Hospital-pharmacy-automated-dispensing-cabinet-auditing
-
-# Install dependencies
-npm install
-
-# Run tests
-npm test
-```
-
-## Development
+## Getting Started
 
 ### Prerequisites
-- Clarinet CLI
-- Node.js 16+
-- Stacks wallet
+- Clarinet development environment
+- Understanding of Clarity smart contract language
+- Familiarity with pharmaceutical inventory management
+- Knowledge of healthcare compliance requirements
 
-### Local Testing
+### Installation
 
 ```bash
-# Check contract syntax
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd Hospital-pharmacy-automated-dispensing-cabinet-auditing
+
+# Verify contract syntax
 clarinet check
 
-# Run test suite
+# Run tests
 clarinet test
-
-# Start local devnet
-clarinet integrate
 ```
 
-## Deployment
+### Configuration
 
-### Testnet
-```bash
-clarinet deployment generate --testnet
-clarinet deployment apply --testnet
-```
+Update `Clarinet.toml` with your deployment parameters and network settings.
 
-### Mainnet
-```bash
-clarinet deployment generate --mainnet
-clarinet deployment apply --mainnet
-```
+## Development Roadmap
 
-## Security Considerations
-
-- **Data Privacy**: PHI/PII should not be stored on-chain
-- **Access Control**: Strict role-based permissions required
-- **Audit Integrity**: Immutable logs prevent tampering
-- **Key Management**: Secure principal/wallet handling essential
-
-## Regulatory Compliance
-
-This system supports compliance with:
-
-- **DEA**: Controlled substance tracking (21 CFR 1301-1308)
-- **Joint Commission**: Medication management standards
-- **State Boards**: Pharmacy practice regulations
-- **HIPAA**: Privacy rule compliance (when properly implemented)
-
-## Roadmap
-
-- [ ] Enhanced reporting dashboards
-- [ ] Integration with hospital EMR systems
-- [ ] Machine learning diversion detection
-- [ ] Multi-facility deployment tools
-- [ ] Mobile app for field auditing
+- **Phase 1:** Core auditing and reconciliation functions
+- **Phase 2:** Advanced analytics and pattern detection
+- **Phase 3:** Integration with electronic health records
+- **Phase 4:** Machine learning for predictive diversion alerts
 
 ## Contributing
 
-Contributions welcome! Please review our contributing guidelines and submit pull requests for review.
+Contributions are welcome! Please ensure all smart contracts pass `clarinet check` and include comprehensive test coverage.
 
 ## License
 
-MIT License - see LICENSE file for details
+This project is developed for healthcare quality improvement and regulatory compliance purposes.
 
-## Support
+## Contact
 
-For questions or issues:
-- GitHub Issues: [Project Issues](https://github.com/oyinlola893/Hospital-pharmacy-automated-dispensing-cabinet-auditing/issues)
-- Email: support@example.com
-
-## Disclaimer
-
-This software is provided for informational purposes. Users are responsible for ensuring compliance with all applicable laws, regulations, and organizational policies. Not intended as legal or regulatory advice.
+For questions, feature requests, or collaboration opportunities, please open an issue in the repository.
 
 ---
 
-**Built with Clarity on Stacks** | **Securing Hospital Pharmacy Operations**
+**Note:** This platform handles sensitive healthcare data. Ensure proper security measures, access controls, and compliance protocols are implemented before production deployment.
